@@ -1,6 +1,7 @@
 package com.audio.baja.adapter
 
 import android.content.Context
+import android.opengl.Visibility
 
 import android.view.LayoutInflater
 import android.view.View
@@ -48,6 +49,7 @@ class SongListServerAdapter(
         var songDuration = toMandS((model.duration * 1000).toLong())
         holder!!.songTV.text= songName
         holder.durationTV.text=songDuration
+        holder.downLoadButton.visibility = View.VISIBLE;
         when (PrefrenceManager.instance?.getDownloadStatus(model.id)) {
             0 -> {
                 holder.downLoadButton.setIdle()
